@@ -10,8 +10,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BookSearchViewModel(
-    private val bookSearchRepository: BookSearchRepository
-) : ViewModel(){
+    private val bookSearchRepository: BookSearchRepository) : ViewModel(){
     // Api
     private val _searchResult = MutableLiveData<SearchResponse>()
     val searchResult: LiveData<SearchResponse> get() = _searchResult
