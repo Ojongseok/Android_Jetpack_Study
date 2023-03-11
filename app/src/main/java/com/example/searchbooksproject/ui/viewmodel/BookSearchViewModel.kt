@@ -1,16 +1,15 @@
 package com.example.searchbooksproject.ui.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.searchbooksproject.data.model.SearchResponse
 import com.example.searchbooksproject.data.repository.BookSearchRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class BookSearchViewModel(
-    private val bookSearchRepository: BookSearchRepository) : ViewModel(){
+    private val bookSearchRepository: BookSearchRepository,
+    private val savedStateHandle: SavedStateHandle
+) : ViewModel(){
     // Api
     private val _searchResult = MutableLiveData<SearchResponse>()
     val searchResult: LiveData<SearchResponse> get() = _searchResult
@@ -22,5 +21,18 @@ class BookSearchViewModel(
                 _searchResult.postValue(it)
             }
         }
+    }
+
+    // SavedState
+    var query = String()
+        set(value) {
+            field = value
+            savedStateHandle[SAVE_STATE_KEY] = value
+        }
+    init {
+        query = savedStateHandle.get<String>(SAVE_STATE_KEY) ?: ""
+    }
+    companion object {
+        private const val SAVE_STATE_KEY = "query"
     }
 }
