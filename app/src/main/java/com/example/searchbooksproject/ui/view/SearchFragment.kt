@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.databinding.FragmentSearchBinding
 import com.example.searchbooksproject.ui.adapter.BookSearchAdapter
 import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
@@ -19,6 +21,7 @@ class SearchFragment: Fragment() {
 
     private lateinit var viewModel: BookSearchViewModel
     private lateinit var bookSearchAdapter: BookSearchAdapter
+    private lateinit var books : List<Book>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
@@ -33,9 +36,16 @@ class SearchFragment: Fragment() {
         searchBooks()
 
         viewModel.searchResult.observe(viewLifecycleOwner) {
-            val books = it.documents
+            books = it.documents
             bookSearchAdapter.submitList(books)
         }
+
+        bookSearchAdapter.setItemClickListener(object : BookSearchAdapter.OnItemClickListener {
+            override fun onClick(v: View, position: Int) {
+                val action = SearchFragmentDirections.actionFragmentSearchToFragmentBook(books[position])
+                findNavController().navigate(action)
+            }
+        })
     }
 
     private fun setupRecyclerView() {

@@ -2,7 +2,9 @@ package com.example.searchbooksproject.ui.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +13,7 @@ import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.databinding.ItemBookPreviewBinding
 
 class BookSearchAdapter : ListAdapter<Book, BookSearchAdapter.BookSearchViewHolder>(BookDiffCallback) {
+    private lateinit var onItemClickListener: OnItemClickListener
     inner class BookSearchViewHolder(private val binding : ItemBookPreviewBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(book : Book) {
             val author = book.authors.toString().removeSurrounding("[","]")
@@ -32,6 +35,17 @@ class BookSearchAdapter : ListAdapter<Book, BookSearchAdapter.BookSearchViewHold
         val book = currentList[position]
         holder.bind(book)
 
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onClick(it, position)
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.onItemClickListener = onItemClickListener
     }
 
     companion object {
