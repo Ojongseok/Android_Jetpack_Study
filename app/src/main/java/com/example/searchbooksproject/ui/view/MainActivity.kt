@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, factory)[BookSearchViewModel::class.java]
 
         setupJetpackNavigation()
-
     }
     private fun setupJetpackNavigation() {
         val host = supportFragmentManager.findFragmentById(R.id.booksearch_nav_host_fragment) as NavHostFragment
