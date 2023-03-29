@@ -2,7 +2,7 @@
 
 ## Section 0. 들어가기
 #### Architecture Pattern과 Android App Architecture
-* ㅁㄴㅇㄴㅇ
+
 #### Support Library와 Androidx와 Jetpack
 
 ## Section 1. Android Architecture Components 이론
@@ -17,11 +17,24 @@
 #### Repository Pattern 기초
 
 ## Section 2. 책 검색 앱 만들기
+#### Practice2A-앱 초기구조 작성하기 (View Binding, BottomNavigationVIew)
 
+#### Practice2B-Retrofit으로 카카오 책 검색 API 다루기 (Retrofit, Moshi, OkHttp, Kapt)
 
+#### Practice2C-Android App Architecture 기반 구축하기 (Repository, ViewModel, Coroutine, Livedata)
+
+#### Practice2D-검색결과를 UI에 표시하기 (Coil, ListAdapter, SaveStateHandle)
 
 ## Section 3. 보강 이론
+#### 안드로이드의 HTTP 통신
 
+#### Data Class 기초
+
+#### Singleton Pattern 기초
+
+#### Coroutine 기초
+
+#### ListAdapter 기초
 
 ## Section 4. Jetpack Navigation
 
