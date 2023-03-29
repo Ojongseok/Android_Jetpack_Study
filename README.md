@@ -10,6 +10,7 @@
 
 ## Section 1. Android Architecture Components 이론
 #### ViewBinding 기초
+* 모듈에서 설정된 각 XML 레이아웃 파일의 Binding 클래스를 생성해 클래스를 통해 대응되는 레이아웃의 뷰 ID에 직접참조를 가능하게 해줌
 * ~~findViewById -> Kotlin Synthetic~~ -> ViewBinding 
 * 뷰의 ID를 부여하는 과정에서 레이아웃에서 Id와 Type을 혼동할 수 있는 우려가 있지만 ViewBinding을 사용함으로써 Null-Safe, Type-Safe를 지킬 수 있다.
 #### ViewModel과 Lifecycle 기초
