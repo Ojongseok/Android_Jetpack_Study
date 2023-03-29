@@ -1,4 +1,4 @@
-# 알기 쉬운 Modern Android Development 입문 From. 냉동코더
+# [Inflearn]알기 쉬운 Modern Android Development 입문 From. 냉동코더
 
 ## Section 0. 들어가기
 #### Architecture Pattern과 Android App Architecture
