@@ -3,8 +3,10 @@
 ## Section 0. 들어가기
 #### Architecture Pattern과 Android App Architecture
 
-#### Support Library와 Androidx와 Jetpack
-
+#### Support Library와 AndroidX와 Jetpack
+* Android Support Library의 여러 문제(최소 API, 버전 통일 이슈 등)를 해결하기 위해 등장한 AndroidX
+* Support Library는 AndroidX 패키지로 완전히 대체, 기존에 사용 중인 <u>com.android.support</u> 라이브러리는 <u>androidx.*</u> 로 마이그레이션 필요
+* Jetpack은 <u>androidx.*</u> 패키지에 구성되며 개발자가 일관된 코드를 작성할 수 있도록 돕는 라이브러리
 ## Section 1. Android Architecture Components 이론
 #### ViewBinding 기초
 
