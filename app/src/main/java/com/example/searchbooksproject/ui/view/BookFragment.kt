@@ -9,12 +9,15 @@ import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
 import com.example.searchbooksproject.R
 import com.example.searchbooksproject.databinding.FragmentBookBinding
+import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class BookFragment: Fragment() {
     private var _binding: FragmentBookBinding? = null
     private val binding get() = _binding!!
 
     private val args by navArgs<BookFragmentArgs>()
+    private lateinit var bookSearchViewModel: BookSearchViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentBookBinding.inflate(inflater, container, false)
@@ -23,12 +26,18 @@ class BookFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        bookSearchViewModel = (activity as MainActivity).viewModel
 
         val book = args.book
         binding.webview.apply {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
             loadUrl(book.url)
+        }
+
+        binding.fabFavorite.setOnClickListener {
+            bookSearchViewModel.saveBook(book)
+            Snackbar.make(view, "저장 완료", Snackbar.LENGTH_SHORT).show()
         }
     }
 

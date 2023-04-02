@@ -10,6 +10,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.searchbooksproject.R
+import com.example.searchbooksproject.data.db.BookSearchDatabase
 import com.example.searchbooksproject.data.repository.BookSearchRepositoryImpl
 import com.example.searchbooksproject.databinding.ActivityMainBinding
 import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
@@ -27,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val repository = BookSearchRepositoryImpl()
+        val database = BookSearchDatabase.getInstance(this)
+        val repository = BookSearchRepositoryImpl(database)
         val factory = BookSearchViewModelFactory(repository, this)
         viewModel = ViewModelProvider(this, factory)[BookSearchViewModel::class.java]
 

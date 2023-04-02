@@ -40,12 +40,7 @@ class SearchFragment: Fragment() {
             bookSearchAdapter.submitList(books)
         }
 
-        bookSearchAdapter.setItemClickListener(object : BookSearchAdapter.OnItemClickListener {
-            override fun onClick(v: View, position: Int) {
-                val action = SearchFragmentDirections.actionFragmentSearchToFragmentBook(books[position])
-                findNavController().navigate(action)
-            }
-        })
+
     }
 
     private fun setupRecyclerView() {
@@ -56,6 +51,13 @@ class SearchFragment: Fragment() {
             addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
             adapter = bookSearchAdapter
         }
+
+        bookSearchAdapter.setItemClickListener(object : BookSearchAdapter.OnItemClickListener {
+            override fun onClick(v: View, position: Int) {
+                val action = SearchFragmentDirections.actionFragmentSearchToFragmentBook(books[position])
+                findNavController().navigate(action)
+            }
+        })
     }
 
     fun searchBooks() {

@@ -1,5 +1,7 @@
 package com.example.searchbooksproject.data.api
 
+import androidx.lifecycle.LiveData
+import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.data.model.SearchResponse
 import com.example.searchbooksproject.util.Constants.API_KEY
 import retrofit2.Response
@@ -16,5 +18,6 @@ interface BookSearchApi {
         @Query("page") page : Int,
         @Query("size") size : Int
     ) : Response<SearchResponse>
+
 
 }
