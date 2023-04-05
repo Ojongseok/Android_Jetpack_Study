@@ -1,7 +1,10 @@
-# [Inflearn] 알기 쉬운 Modern Android Development 입문 From. 냉동코더
+# 📗 [Inflearn] 알기 쉬운 Modern Android Development 입문 From. 냉동코더
 
 ## Section 0. 들어가기
 #### Architecture Pattern과 Android App Architecture
+* 아키텍쳐 패턴, 앱 아키텍쳐는 디자인 패턴(MVC, MVP, MVVM) 용어와 유사하다.
+* 프로젝트의 규모가 커짐에 따라 약속된 효율적인 개발 방식이 필요했고, 앱의 구성요소를 UI(View), Controller(ViewModel), Data(Model)로 분리하게 되었다.
+* 해당 프로젝트에서는 MVVM 패턴과 SAA(Single Activity Architecture)를 준수한다.
 
 #### Support Library와 AndroidX와 Jetpack
 * Android Support Library의 여러 문제(최소 API, 버전 통일 이슈 등)를 해결하기 위해 등장한 AndroidX
@@ -13,8 +16,9 @@
 * 모듈에서 설정된 각 XML 레이아웃 파일의 Binding 클래스를 생성해 클래스를 통해 대응되는 레이아웃의 뷰 ID에 직접참조를 가능하게 해줌
 * ~~findViewById -> Kotlin Synthetic~~ -> ViewBinding (Android Studio 4.1 버전부터 권장됨)
 * 뷰의 ID를 부여하는 과정에서 레이아웃에서 Id와 Type을 혼동할 수 있는 우려가 있지만 ViewBinding을 사용함으로써 Null-Safe, Type-Safe를 지킬 수 있다.
-#### ViewModel과 Lifecycle 기초
 
+#### ViewModel과 Lifecycle 기초
+* 
 #### LiveData와 Observer Pattern 기초
 
 #### DataBinding 기초
@@ -42,15 +46,18 @@
 #### ListAdapter 기초
 
 ## Section 4. Jetpack Navigation
-
-
+#### Navigation 기초
+#### Practice4A-Navigation으로 UI의 화면전환 구현하기 (BottomNavigationView, AppBar)
+#### Practice4B-Safe args로 프래그먼트간 데이터 전달하기 (SafeArgs, Parcelable, WebView)
 
 ## Section 5. Jetpack Room
-
+#### SQLite와 Room 기초
+#### Practice5A-검색결과 저장을 위한 Room DB 구현하기 (Entity, Dao, Database, TypeConverter)
+#### Practice5B-Room DB를 UI와 연동하기 (RecyclerView, ClickListener, SimpleCallback)
 
 ## Section 6. Kotlin Flow
-
-
+#### Flow 기초
+#### Practice6-Room 응답을 flow로 변환하기 (Flow, StateFlow, Extension functions)
 
 ## Section 7. Jetpack DataStore
 
