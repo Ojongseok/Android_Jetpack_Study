@@ -18,7 +18,10 @@
 * 뷰의 ID를 부여하는 과정에서 레이아웃에서 Id와 Type을 혼동할 수 있는 우려가 있지만 ViewBinding을 사용함으로써 Null-Safe, Type-Safe를 지킬 수 있다.
 
 #### ViewModel과 Lifecycle 기초
+* MVVM에서 ViewModel은 View에서 Model의 데이터에 접근할 수 있도록 View와 Model 사이를 매개하는 역할을 한다.
+* ViewModel의 Lifecycle(생명주기)은 ViewModel이 속해있는 Activity나 Fragment의 생명주기를 따릅니다.
 * 
+
 #### LiveData와 Observer Pattern 기초
 
 #### DataBinding 기초
