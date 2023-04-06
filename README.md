@@ -28,9 +28,10 @@
 
 #### DataBinding 기초
 * 클래스 파일에서 UI와 데이터를 연결하던 방식에서 뷰가 있는 xml에서 직접 데이터에 접근하여 UI를 구성하는 방법
+
 #### Repository Pattern 기초
 * 데이터의 출처에 관계 없이 동일한 인터페이스로 데이터와 데이터 소스에 접근하기 위한 패턴
-* Model과 DataSource를 캡슐화시킨다고 이해할 수 있다.
+* ViewModel에서는 Repository에 접근하고 Repository에서 DataLayer에 접근하며 DataLayer를 캡슐화시키는 것이 주목적으로 이해할 수 있다.
 
 ## Section 2. 책 검색 앱 만들기
 #### [완료] Practice2A-앱 초기구조 작성하기 (ViewBinding, BottomNavigationVIew)
