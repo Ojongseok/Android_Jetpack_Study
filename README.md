@@ -20,9 +20,11 @@
 #### ViewModel과 Lifecycle 기초
 * MVVM에서 ViewModel은 View에서 Model의 데이터에 접근할 수 있도록 View와 Model 사이를 매개하는 역할을 한다.
 * ViewModel의 Lifecycle(생명주기)은 ViewModel이 속해있는 Activity나 Fragment의 생명주기를 따릅니다.
-* 
 
 #### LiveData와 Observer Pattern 기초
+* LiveData는 수명주기를 인식할 수 있는 관찰 가능한 홀더 클래스이다.
+* LiveData 값의 변화를 Observer 객체를 통해 관찰 및 수정
+* LiveData를 사용함으로써 UI와 데이터 상태의 일치 보장, 메모리 누수 및 비정상 종료 없음, 최신 데이터 유지 등과 같은 장점
 
 #### DataBinding 기초
 
