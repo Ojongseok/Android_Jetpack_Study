@@ -33,10 +33,10 @@
 * Model과 DataSource를 캡슐화시킨다고 이해할 수 있다.
 
 ## Section 2. 책 검색 앱 만들기
-#### [완료]Practice2A-앱 초기구조 작성하기 (ViewBinding, BottomNavigationVIew)
-#### [완료]Practice2B-Retrofit으로 카카오 책 검색 API 다루기 (Retrofit, Moshi, OkHttp, Kapt)
-#### [완료]Practice2C-Android App Architecture 기반 구축하기 (Repository, ViewModel, Coroutine, Livedata)
-#### [완료]Practice2D-검색결과를 UI에 표시하기 (Coil, ListAdapter, SaveStateHandle)
+#### [완료] Practice2A-앱 초기구조 작성하기 (ViewBinding, BottomNavigationVIew)
+#### [완료] Practice2B-Retrofit으로 카카오 책 검색 API 다루기 (Retrofit, Moshi, OkHttp, Kapt)
+#### [완료] Practice2C-Android App Architecture 기반 구축하기 (Repository, ViewModel, Coroutine, Livedata)
+#### [완료] Practice2D-검색결과를 UI에 표시하기 (Coil, ListAdapter, SaveStateHandle)
 
 ## Section 3. 보강 이론
 #### 안드로이드의 HTTP 통신
