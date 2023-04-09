@@ -64,7 +64,11 @@
 #### Practice6-Room 응답을 flow로 변환하기 (Flow, StateFlow, Extension functions)
 
 ## Section 7. Jetpack DataStore
-
+#### DataStore 기초
+* 간단한 데이터나 앱의 단순 환경설정 등을 Key-Value 쌍으로 저장하는 데이터 저장소 솔루션 (SharedPreference를 대체하기 위해 등장)
+* Coroutine과 Flow를 사용해 비동기 처리가 가능하며 일관된 트랜잭션 방식으로 
+* 복잡한 대규모의 데이터를 관리할 때에는 DataStore 대신 Room 사용 권장
+#### [완료] Practice7-세팅화면 구현하기 (Preferences DataStore, Enum)
 
 ## Section 8. Jetpack Paging
 
