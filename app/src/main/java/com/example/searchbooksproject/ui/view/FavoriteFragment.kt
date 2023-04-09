@@ -48,7 +48,7 @@ class FavoriteFragment: Fragment() {
 //            bookSearchViewModel.favoriteBooks.collectLatest {
 //                bookSearchAdapter.submitList(it)
 //            }
-//        }/
+//        }
         // Flow -> StateFlow로
 //        viewLifecycleOwner.lifecycleScope.launch {
 //            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -58,7 +58,9 @@ class FavoriteFragment: Fragment() {
 //            }
 //        }
 
-        // 코루틴 블럭이 너무 길면 확장함수로
+
+
+        // 코루틴 블럭이 너무 길어서서 확장함수로
         collectLatestStateFlow(bookSearchViewModel.favoriteBooks) {
             books = it
             bookSearchAdapter.submitList(it)
