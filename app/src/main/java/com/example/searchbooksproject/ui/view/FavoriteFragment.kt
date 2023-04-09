@@ -5,19 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.accessibility.AccessibilityEventCompat.setAction
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.searchbooksproject.R
 import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.databinding.FragmentFavoriteBinding
 import com.example.searchbooksproject.ui.adapter.BookSearchAdapter
 import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
+import com.example.searchbooksproject.util.collectLatestStateFlow
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 class FavoriteFragment: Fragment() {
     private var _binding: FragmentFavoriteBinding? = null
@@ -36,9 +39,29 @@ class FavoriteFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bookSearchViewModel = (activity as MainActivity).viewModel
 
-        bookSearchViewModel.favoriteBooks.observe(viewLifecycleOwner) {
+//        bookSearchViewModel.favoriteBooks.observe(viewLifecycleOwner) {
+//            books = it
+//            bookSearchAdapter.submitList(books)
+//        }
+        // LiveData -> Flow로
+//        lifecycleScope.launch {
+//            bookSearchViewModel.favoriteBooks.collectLatest {
+//                bookSearchAdapter.submitList(it)
+//            }
+//        }/
+        // Flow -> StateFlow로
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                bookSearchViewModel.favoriteBooks.collectLatest {
+//                    bookSearchAdapter.submitList(it)
+//                }
+//            }
+//        }
+
+        // 코루틴 블럭이 너무 길면 확장함수로
+        collectLatestStateFlow(bookSearchViewModel.favoriteBooks) {
             books = it
-            bookSearchAdapter.submitList(books)
+            bookSearchAdapter.submitList(it)
         }
 
         setupRecyclerView()
@@ -48,6 +71,7 @@ class FavoriteFragment: Fragment() {
 
     private fun setupRecyclerView() {
         bookSearchAdapter = BookSearchAdapter()
+
         binding.rvFavoriteBooks.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)

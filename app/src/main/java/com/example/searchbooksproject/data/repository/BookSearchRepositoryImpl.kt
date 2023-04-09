@@ -5,6 +5,7 @@ import com.example.searchbooksproject.data.api.RetrofitInstance.api
 import com.example.searchbooksproject.data.db.BookSearchDatabase
 import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.data.model.SearchResponse
+import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
 class BookSearchRepositoryImpl(
@@ -27,7 +28,7 @@ class BookSearchRepositoryImpl(
         db.bookSearchDao().deleteBook(book)
     }
 
-    override fun getFavoriteBooks(): LiveData<List<Book>> {
+    override fun getFavoriteBooks(): Flow<List<Book>> {
         return db.bookSearchDao().getFavoriteBooks()
     }
 
