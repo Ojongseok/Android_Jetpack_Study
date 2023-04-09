@@ -48,13 +48,16 @@
 
 ## Section 4. Jetpack Navigation
 #### Navigation 기초
-#### Practice4A-Navigation으로 UI의 화면전환 구현하기 (BottomNavigationView, AppBar)
-#### Practice4B-Safe args로 프래그먼트간 데이터 전달하기 (SafeArgs, Parcelable, WebView)
+* graph와 NavController 객체를 통해 프래그먼트 간의 이동을 관리하는 구성요소
+* Safe args를 사용해 유형 안전성을 갖춘 화면 간에 데이터 전달
+#### [완료] Practice4A-Navigation으로 UI의 화면전환 구현하기 (BottomNavigationView, AppBar)
+#### [완료] Practice4B-Safe args로 프래그먼트간 데이터 전달하기 (SafeArgs, Parcelable, WebView)
 
 ## Section 5. Jetpack Room
 #### SQLite와 Room 기초
-#### Practice5A-검색결과 저장을 위한 Room DB 구현하기 (Entity, Dao, Database, TypeConverter)
-#### Practice5B-Room DB를 UI와 연동하기 (RecyclerView, ClickListener, SimpleCallback)
+* 
+#### [완료] Practice5A-검색결과 저장을 위한 Room DB 구현하기 (Entity, Dao, Database, TypeConverter)
+#### [완료] Practice5B-Room DB를 UI와 연동하기 (RecyclerView, ClickListener, SimpleCallback)
 
 ## Section 6. Kotlin Flow
 #### Flow 기초
