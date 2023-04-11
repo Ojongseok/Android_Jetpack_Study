@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.databinding.FragmentFavoriteBinding
 import com.example.searchbooksproject.ui.adapter.BookSearchAdapter
+import com.example.searchbooksproject.ui.adapter.BookSearchPagingAdapter
 import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
 import com.example.searchbooksproject.util.collectLatestStateFlow
 import com.google.android.material.snackbar.Snackbar
@@ -27,7 +28,7 @@ class FavoriteFragment: Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var bookSearchViewModel: BookSearchViewModel
-    private lateinit var bookSearchAdapter: BookSearchAdapter
+    private lateinit var bookSearchAdapter: BookSearchPagingAdapter
     private lateinit var books: List<Book>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -61,9 +62,12 @@ class FavoriteFragment: Fragment() {
 
 
         // 코루틴 블럭이 너무 길어서서 확장함수로
-        collectLatestStateFlow(bookSearchViewModel.favoriteBooks) {
-            books = it
-            bookSearchAdapter.submitList(it)
+//        collectLatestStateFlow(bookSearchViewModel.favoriteBooks) {
+//            books = it
+//            bookSearchAdapter.submitList(it)
+//        }
+        collectLatestStateFlow(bookSearchViewModel.favoritePagingBooks) {
+            bookSearchAdapter.submitData(it)
         }
 
         setupRecyclerView()
@@ -72,7 +76,8 @@ class FavoriteFragment: Fragment() {
     }
 
     private fun setupRecyclerView() {
-        bookSearchAdapter = BookSearchAdapter()
+//        bookSearchAdapter = BookSearchAdapter()
+        bookSearchAdapter = BookSearchPagingAdapter()
 
         binding.rvFavoriteBooks.apply {
             setHasFixedSize(true)
@@ -81,7 +86,7 @@ class FavoriteFragment: Fragment() {
             adapter = bookSearchAdapter
         }
 
-        bookSearchAdapter.setItemClickListener(object : BookSearchAdapter.OnItemClickListener {
+        bookSearchAdapter.setItemClickListener(object : BookSearchPagingAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 val action = FavoriteFragmentDirections.actionFragmentFavoriteToFragmentBook(books[position])
                 findNavController().navigate(action)
@@ -103,13 +108,22 @@ class FavoriteFragment: Fragment() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.bindingAdapterPosition
-                val book = bookSearchAdapter.currentList[position]
-                bookSearchViewModel.deleteBook(book)
-                Snackbar.make(view, "삭제 완료", Snackbar.LENGTH_SHORT).apply {
-                    setAction("취소") {
-                        bookSearchViewModel.saveBook(book)
-                    }
-                }.show()
+//                val book = bookSearchAdapter.currentList[position]
+//                bookSearchViewModel.deleteBook(book)
+//                Snackbar.make(view, "삭제 완료", Snackbar.LENGTH_SHORT).apply {
+//                    setAction("취소") {
+//                        bookSearchViewModel.saveBook(book)
+//                    }
+//                }.show()
+                val pagedBook = bookSearchAdapter.peek(position)
+                pagedBook?.let { book ->
+                    bookSearchViewModel.deleteBook(book)
+                    Snackbar.make(view, "삭제됨", Snackbar.LENGTH_SHORT).apply {
+                        setAction("Undo") {
+                            bookSearchViewModel.saveBook(book)
+                        }
+                    }.show()
+                }
             }
         }
         ItemTouchHelper(itemTouchHelperCallback).apply {

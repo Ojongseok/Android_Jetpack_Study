@@ -13,14 +13,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.databinding.FragmentSearchBinding
 import com.example.searchbooksproject.ui.adapter.BookSearchAdapter
+import com.example.searchbooksproject.ui.adapter.BookSearchPagingAdapter
 import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
+import com.example.searchbooksproject.util.collectLatestStateFlow
 
 class SearchFragment: Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var viewModel: BookSearchViewModel
-    private lateinit var bookSearchAdapter: BookSearchAdapter
+    private lateinit var bookSearchAdapter: BookSearchPagingAdapter
     private lateinit var books : List<Book>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -35,16 +37,18 @@ class SearchFragment: Fragment() {
         setupRecyclerView()
         searchBooks()
 
-        viewModel.searchResult.observe(viewLifecycleOwner) {
-            books = it.documents
-            bookSearchAdapter.submitList(books)
+//        viewModel.searchResult.observe(viewLifecycleOwner) {
+//            books = it.documents
+//            bookSearchAdapter.submitList(books)
+//        }
+        collectLatestStateFlow(viewModel.searchPagingResult) {
+            bookSearchAdapter.submitData(it)
         }
-
 
     }
 
     private fun setupRecyclerView() {
-        bookSearchAdapter = BookSearchAdapter()
+        bookSearchAdapter = BookSearchPagingAdapter()
         binding.rvSearchResult.apply {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
@@ -52,7 +56,7 @@ class SearchFragment: Fragment() {
             adapter = bookSearchAdapter
         }
 
-        bookSearchAdapter.setItemClickListener(object : BookSearchAdapter.OnItemClickListener {
+        bookSearchAdapter.setItemClickListener(object : BookSearchPagingAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
                 val action = SearchFragmentDirections.actionFragmentSearchToFragmentBook(books[position])
                 findNavController().navigate(action)
@@ -72,7 +76,8 @@ class SearchFragment: Fragment() {
                 it?.let {
                     val query = it.toString().trim()
                     if (query.isNotEmpty()) {
-                        viewModel.searchBooks(query)
+//                        viewModel.searchBooks(query)
+                        viewModel.searchBooksPaging(query)
                         viewModel.query = query
                     }
                 }
