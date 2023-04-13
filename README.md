@@ -55,7 +55,9 @@
 
 ## Section 5. Jetpack Room
 #### SQLite와 Room 기초
-* 
+* SQLite를 활용해서 기기 자체의 내부 저장소(로컬 데이터베이스)에 접근하는 라이브러리
+* Room은 기기가 네트워크에 엑세스할 수 없는 오프라인 상태에서도 콘텐츠를 탐색할 수 있으며 다시 기기가 온라인 상태가 되면 변경사항이 DB에 동기화된다는 특징이 있다.
+* AAC(Android Architecture Component)의 다른 컴포넌트들(ViewModel, LiveData, Databinding...)과 함께 많이 사용된다.
 #### [완료] Practice5A-검색결과 저장을 위한 Room DB 구현하기 (Entity, Dao, Database, TypeConverter)
 #### [완료] Practice5B-Room DB를 UI와 연동하기 (RecyclerView, ClickListener, SimpleCallback)
 
@@ -72,8 +74,11 @@
 #### [완료] Practice7-세팅화면 구현하기 (Preferences DataStore, Enum)
 
 ## Section 8. Jetpack Paging
-
-
+#### Paging 기초
+* 
+#### [완료] Practice8A-Room 응답에 Paging 적용하기 (Pager, PagingDataAdapter)
+#### [완료] Practice8B-Retrofit 응답에 Paging 적용하기 (PagingSource)
+#### Practice8C-네트워크 로딩 상태 핸들링하기 (LoadState, LoadStateAdapter)
 
 ## Section 9. Jetpack WorkManager
 
