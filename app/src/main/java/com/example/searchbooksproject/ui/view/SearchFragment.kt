@@ -23,7 +23,7 @@ class SearchFragment: Fragment() {
 
     private lateinit var viewModel: BookSearchViewModel
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
-    private lateinit var books : List<Book>
+//    private lateinit var books : List<Book>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
@@ -58,7 +58,7 @@ class SearchFragment: Fragment() {
 
         bookSearchAdapter.setItemClickListener(object : BookSearchPagingAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                val action = SearchFragmentDirections.actionFragmentSearchToFragmentBook(books[position])
+                val action = SearchFragmentDirections.actionFragmentSearchToFragmentBook(bookSearchAdapter.getCurrentList(position))
                 findNavController().navigate(action)
             }
         })

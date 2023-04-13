@@ -48,6 +48,8 @@ class BookSearchAdapter : ListAdapter<Book, BookSearchAdapter.BookSearchViewHold
         this.onItemClickListener = onItemClickListener
     }
 
+
+
     companion object {
         private val BookDiffCallback = object  : DiffUtil.ItemCallback<Book>() {
             override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {

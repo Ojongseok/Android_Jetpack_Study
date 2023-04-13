@@ -53,6 +53,10 @@ class BookSearchPagingAdapter: PagingDataAdapter<Book, BookSearchPagingAdapter.B
         this.onItemClickListener = onItemClickListener
     }
 
+    fun getCurrentList(position: Int) : Book {
+        return getItem(position)!!
+    }
+
     companion object {
         private val BookDiffCallback = object  : DiffUtil.ItemCallback<Book>() {
             override fun areItemsTheSame(oldItem: Book, newItem: Book): Boolean {
