@@ -1,5 +1,7 @@
 # 📗 [Inflearn] 알기 쉬운 Modern Android Development 입문 From. 냉동코더
 
+<img src="https://user-images.githubusercontent.com/98886487/231916048-4e45406a-d7ce-420f-b5c1-0a7434ea4b43.png" width="300" height="300" /> 
+
 ## Section 0. 들어가기
 #### Architecture Pattern과 Android App Architecture
 * 아키텍쳐 패턴, 앱 아키텍쳐는 디자인 패턴(MVC, MVP, MVVM) 용어와 유사하다.
