@@ -65,7 +65,8 @@
 
 ## Section 6. Kotlin Flow
 #### Flow 기초
-* 
+* 데이터 생산자에서 데이터 소비자로 데이터가 이동하는 과정을 데이터 스트림이라고 한다. 이 과정을 코틀린에서 Flow라고 한다.
+* 비동기적으로 작동하기 때문에 Coroutine과 함께 사용되며 순차적으로 값을 배출해 완료/에러를 반환한다.
 #### [완료] Practice6-Room 응답을 flow로 변환하기 (Flow, StateFlow, Extension functions)
 
 ## Section 7. Jetpack DataStore
@@ -77,20 +78,24 @@
 
 ## Section 8. Jetpack Paging
 #### Paging 기초
-* 
+* 방대한 양의 데이터를 일정한 사이즈로 나누어 가져오는 라이브러리
+* 페이징 방식을 사용하여 리소스, 성능, 메모리, 비용 측면에서 매우 효율적이라는 장점이 있다.
 #### [완료] Practice8A-Room 응답에 Paging 적용하기 (Pager, PagingDataAdapter)
 #### [완료] Practice8B-Retrofit 응답에 Paging 적용하기 (PagingSource)
-#### Practice8C-네트워크 로딩 상태 핸들링하기 (LoadState, LoadStateAdapter)
+#### [완료] Practice8C-네트워크 로딩 상태 핸들링하기 (LoadState, LoadStateAdapter)
 
 ## Section 9. Jetpack WorkManager
-
-
+#### WorkManager 기초
+* 정기적인 백그라운드 작업시에 사용되는 API (SDK 26 이상부터 강제됨)
+#### [완료] Practice9-자동 캐시 정리 구현하기 (Worker, WorkRequest, WorkInfo)
 
 ## Section 10. Dagger-Hilt
-
-
+#### Dependency Injection 기초
+#### Hilt 기초
+#### Practice10A-Hilt 의존성 작성하기 (Module, Provides, Binds)
+#### Practice10B-Hilt 의존성 주입하기 (Inject constructor, HiltWorker)
+#### Practice10C-관심사에 따라 ViewModel 분리하기 (by viewModels)
 
 ## Section 11. Gradle with Kotlin script
-
 
 
