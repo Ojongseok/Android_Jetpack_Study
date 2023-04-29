@@ -90,12 +90,21 @@
 #### [완료] Practice9-자동 캐시 정리 구현하기 (Worker, WorkRequest, WorkInfo)
 
 ## Section 10. Dagger-Hilt
-#### Dependency Injection 기초
-#### Hilt 기초
-#### Practice10A-Hilt 의존성 작성하기 (Module, Provides, Binds)
-#### Practice10B-Hilt 의존성 주입하기 (Inject constructor, HiltWorker)
-#### Practice10C-관심사에 따라 ViewModel 분리하기 (by viewModels)
+#### Dependency Injection 및 Hilt 기초
+* 
+#### [완료] Practice10A-Hilt 의존성 작성하기 (Module, Provides, Binds)
+#### [완료] Practice10B-Hilt 의존성 주입하기 (Inject constructor, HiltWorker)
+#### [완료] Practice10C-관심사에 따라 ViewModel 분리하기 (by viewModels)
 
 ## Section 11. Gradle with Kotlin script
+#### Build Tool과 Android Gradle Plugin
+* 
+#### Practice11-build.gradle을 KTS로 마이그레이션하기 (KTS, buildSrc)
+
+## Section 12. 마치며
+#### MAD Score
+* ~~Jetpack 라이브러리 사용 정도에 따른 점수 부여(지원중단)~~
+
+## Section 13. Appendix. Jetpack Test
 
 
