@@ -2,12 +2,13 @@ package com.example.searchbooksproject.data.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.searchbooksproject.data.api.RetrofitInstance.api
+import com.example.searchbooksproject.data.api.BookSearchApi
 import com.example.searchbooksproject.data.model.Book
 import retrofit2.HttpException
 import java.io.IOException
 
 class BookSearchPagingSource(
+    private val api: BookSearchApi,
     private val query: String,
     private val sort: String
 ) : PagingSource<Int, Book>() {

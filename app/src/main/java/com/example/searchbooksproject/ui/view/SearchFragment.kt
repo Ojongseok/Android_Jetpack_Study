@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -25,7 +26,9 @@ class SearchFragment: Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: BookSearchViewModel
+//    private lateinit var viewModel: BookSearchViewModel
+    private val viewModel by activityViewModels<BookSearchViewModel>()
+
     private lateinit var bookSearchAdapter: BookSearchPagingAdapter
 //    private lateinit var books : List<Book>
 
@@ -36,7 +39,7 @@ class SearchFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = (activity as MainActivity).viewModel
+//        viewModel = (activity as MainActivity).viewModel
 
         setupRecyclerView()
         searchBooks()

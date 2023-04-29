@@ -12,13 +12,16 @@ import com.example.searchbooksproject.data.model.Book
 import com.example.searchbooksproject.data.model.SearchResponse
 import com.example.searchbooksproject.data.repository.BookSearchRepository
 import com.example.searchbooksproject.worker.CacheDeleteWorker
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class BookSearchViewModel(
+@HiltViewModel
+class BookSearchViewModel @Inject constructor(
     private val bookSearchRepository: BookSearchRepository,
     private val workManager: WorkManager,
     private val savedStateHandle: SavedStateHandle
