@@ -5,20 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.searchbooksproject.R
 import com.example.searchbooksproject.databinding.FragmentSettingBinding
-import com.example.searchbooksproject.ui.viewmodel.BookSearchViewModel
+import com.example.searchbooksproject.ui.viewmodel.SettingsViewModel
 import com.example.searchbooksproject.util.Sort
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SettingFragment: Fragment() {
     private var _binding: FragmentSettingBinding? = null
     private val binding get() = _binding!!
 
 //    private lateinit var bookSearchViewModel: BookSearchViewModel
-    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
+//    private val bookSearchViewModel by activityViewModels<BookSearchViewModel>()
+    private val settingsViewModel by viewModels<SettingsViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentSettingBinding.inflate(inflater, container, false)
@@ -36,7 +39,7 @@ class SettingFragment: Fragment() {
 
     private fun loadSettings() {
         lifecycleScope.launch {
-            val buttonId = when (bookSearchViewModel.getSortMode()) {
+            val buttonId = when (settingsViewModel.getSortMode()) {
                 Sort.ACCURACY.value -> R.id.rb_accuracy
                 Sort.LATEST.value -> R.id.rb_latest
                 else -> return@launch
@@ -52,7 +55,7 @@ class SettingFragment: Fragment() {
                 R.id.rb_latest -> Sort.LATEST.value
                 else -> return@setOnCheckedChangeListener
             }
-            bookSearchViewModel.saveSortMode(value)
+            settingsViewModel.saveSortMode(value)
         }
     }
 
