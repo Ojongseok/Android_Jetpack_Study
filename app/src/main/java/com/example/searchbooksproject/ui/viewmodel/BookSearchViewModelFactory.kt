@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.savedstate.SavedStateRegistryOwner
+import androidx.work.WorkManager
 import com.example.searchbooksproject.data.repository.BookSearchRepository
 import java.lang.IllegalArgumentException
 
@@ -21,6 +22,7 @@ import java.lang.IllegalArgumentException
 //}
 class BookSearchViewModelFactory(
     private val bookSearchRepository: BookSearchRepository,
+    private val workManager: WorkManager,
     owner: SavedStateRegistryOwner,
     defaultArgs: Bundle? = null,
 ) : AbstractSavedStateViewModelFactory(owner, defaultArgs) {
@@ -30,7 +32,7 @@ class BookSearchViewModelFactory(
         handle: SavedStateHandle
     ): T {
         if (modelClass.isAssignableFrom(BookSearchViewModel::class.java)) {
-            return BookSearchViewModel(bookSearchRepository, handle) as T
+            return BookSearchViewModel(bookSearchRepository, workManager, handle) as T
         }
         throw IllegalArgumentException("ViewModel class not found")
     }
