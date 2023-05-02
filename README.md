@@ -91,6 +91,8 @@
 
 ## Section 10. Dagger-Hilt
 #### Dependency Injection 및 Hilt 기초
+* Dagger 기반의 Android 환경에서 최적화된 의존성 주입(Dipendency Injection) 라이브러리
+* 객체들간의 의존성을 줄이고, 유연한 코드 작성을 위한 설계 패턴
 * 
 #### [완료] Practice10A-Hilt 의존성 작성하기 (Module, Provides, Binds)
 #### [완료] Practice10B-Hilt 의존성 주입하기 (Inject constructor, HiltWorker)
