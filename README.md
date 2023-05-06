@@ -2,6 +2,9 @@
 
 <img src="https://user-images.githubusercontent.com/98886487/231916048-4e45406a-d7ce-420f-b5c1-0a7434ea4b43.png" width="300" height="300" /> 
 
+<img src="https://user-images.githubusercontent.com/98886487/236624051-022b0f79-f114-4199-82bb-dc11aa2d86ac.gif" width="200" height="400" />
+
+
 ## Section 0. 들어가기
 #### Architecture Pattern과 Android App Architecture
 * 아키텍쳐 패턴, 앱 아키텍쳐는 디자인 패턴(MVC, MVP, MVVM) 용어와 유사하다.
@@ -100,7 +103,8 @@
 
 ## Section 11. Gradle with Kotlin script
 #### Build Tool과 Android Gradle Plugin
-* 
+* Gradle에 KTS(Kotlin Script)를 적용해 향상된 편집 환경
+* 빌드시 Groovy DSL보다는 속도는 느리지만 KTS를 사용할 때 개선점이 더 많기 때문에 앞으로 더 유망할 것.
 #### Practice11-build.gradle을 KTS로 마이그레이션하기 (KTS, buildSrc)
 
 ## Section 12. 마치며
@@ -108,5 +112,6 @@
 * ~~Jetpack 라이브러리 사용 정도에 따른 점수 부여(지원중단)~~
 
 ## Section 13. Appendix. Jetpack Test
-
+#### 안드로이드 테스트 자동화 기초
+#### 
 
